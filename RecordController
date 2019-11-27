@@ -1,0 +1,7 @@
+public class RecordController {
+	@AuraEnabled
+    public static User getOwnerDetail(String recordId, String objectAPIName){
+        Id ownerId = (Id)Database.query('SELECT OwnerId FROM ' + objectAPIName + ' WHERE Id =: recordId')[0].get('OwnerId');
+    	return [SELECT Id, Name, SmallPhotoURL FROM User WHERE Id =: ownerId];
+    }
+}
