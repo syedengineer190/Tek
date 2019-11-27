@@ -1,0 +1,25 @@
+<aura:component controller="RecordController" implements="force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="ownerDetail" type="User" />
+    <aura:attribute name="objectAPIName" type="String" required="true" default="Account" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+     
+
+    <lightning:card class="slds-text-heading_small" title = "Details">
+         <lightning:layoutItem padding="horizontal-small">
+             <ul>
+  <li>            <h1 class="slds-text-heading--label"> Owner Name : {!v.ownerDetail.Name} 	</h1>
+</li>
+  <li>    <h1 class="slds-text-heading--label">Owner Picture : <img src="{!v.ownerDetail.SmallPhotoURL}" height="100px" width="100px" /> </h1>
+</li>
+ 
+</ul>
+
+
+        </lightning:layoutItem>
+        
+         
+    </lightning:card>
+    
+</aura:component>
